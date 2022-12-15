@@ -4,7 +4,7 @@
     <h2 class="display-4 text-center">Add Employee</h2><hr>
      <div class="row">
         <div class="offset-md-3 col-md-6">
-            <form action="" method="post">
+            <form action="/employee/store" method="post">
               @csrf
               <div class="mb-3">
                   <label class="form-label">Employee Name</label>

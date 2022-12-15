@@ -33,9 +33,9 @@
                 </ul>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-primary" type="submit">Search</button>
+            <form class="d-flex" role="search" action="/employee" method="get">
+              <input class="form-control me-2"  name="search" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-primary">Search</button>
             </form>
           </div>
         </div>

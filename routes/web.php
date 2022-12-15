@@ -38,3 +38,7 @@ Route::get('/department/delete/{id}',[DepartmentController::class , 'delete']);
 
 Route::get('/employee',[EmployeeController::class , 'index']);
 Route::get('/employee/insert',[EmployeeController::class , 'insert']);
+Route::post('/employee/store',[EmployeeController::class , 'store']);
+Route::get('/employee/edit/{id}',[EmployeeController::class , 'edit']);
+Route::post('/employee/update/{id}',[EmployeeController::class , 'update']);
+Route::get('/employee/delete/{id}',[EmployeeController::class , 'delete']);
