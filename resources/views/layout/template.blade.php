@@ -29,11 +29,12 @@
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/student">All Students</a></li>
                   <li><a class="dropdown-item" href="/student/insert">Add Student</a></li>
+                  <li><a class="dropdown-item" href="/student/trash">Trash Students</a></li>
                 </ul>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" role="search" action="/student" method="GET">
+              <input class="form-control me-2" type="text" name="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-primary" type="submit">Search</button>
             </form>
           </div>

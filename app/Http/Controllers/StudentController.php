@@ -4,16 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
 
-  public function index()
+  public function index(Request $req)
   {
 
-    $st = Student::all();
+    // $search = $req['search'];
+
+    // $st = DB::table('students')->select('students.*')->where('students.stname','like',"%$search%")->paginate(4);
+     $st = Student::all();
 
     return view('student.index')->with('st', $st);
+  }
+
+  public function trash(){
+
+   $st = Student::onlyTrashed()->get();
+
+   return view('student.trash')->with('st',$st);
+
   }
 
   public function insert()
@@ -45,6 +57,8 @@ class StudentController extends Controller
     $nst->img = $name;
     $nst->save();
 
+    session()->flash('status','Record added successfully!');
+
     return redirect('/student');
   }
 
@@ -52,8 +66,6 @@ class StudentController extends Controller
   {
 
     $st = Student::find($id);
-
-    unlink('images/' . $st->img);
 
     if (!is_null($st)) {
 
@@ -105,9 +117,38 @@ class StudentController extends Controller
       $st->img = $name;
       $st->save();
 
+      session()->flash('status','Record updated successfully!');
       return redirect('/student');
        
     }
+
+  }
+
+  public function deleteper($id){
+
+   $res = Student::onlyTrashed()->find($id);
+
+   if(!is_null($res)){
+
+    unlink('images/'.$res->img);
+    $res->forceDelete();
+    return redirect('/student/trash');
+
+   }
+
+  }
+
+  public function restore($id){
+
+  $res = Student::onlyTrashed()->find($id);
+
+  if(!is_null($res)){
+
+   $res->restore();
+
+   return redirect('/student');
+
+  }
 
   }
 
