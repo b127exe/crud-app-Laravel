@@ -12,10 +12,12 @@ class StudentController extends Controller
   public function index(Request $req)
   {
 
-    // $search = $req['search'];
+    $search = $req['search'];
 
     // $st = DB::table('students')->select('students.*')->where('students.stname','like',"%$search%")->paginate(4);
      $st = Student::all();
+
+    //  format($st);
 
     return view('student.index')->with('st', $st);
   }

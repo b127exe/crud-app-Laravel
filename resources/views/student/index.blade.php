@@ -5,14 +5,15 @@
         <h2 class="display-4 text-center">All Record</h2>
         <hr>
         @if (session()->has('status'))
-        <div class="alert alert-success" role="alert">
-            {{session()->get('status')}}
-          </div>
+            <div class="alert alert-success" role="alert">
+                {{ session()->get('status') }}
+            </div>
         @endif
-            <table class="table table-hover">
+        <div class="table-responsive">
+            <table class="table table-hover" style="overflow-y: hidden;">
                 <thead>
                     <tr>
-                        <th>ID</th >
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Guardian Name</th>
                         <th>Age</th>
@@ -33,30 +34,34 @@
                                     alt="{{ $item->img }}"></td>
                             <td>
                                 <div class="input-group">
-                                    <a href="{{ url('student/edit')}}/{{ $item->sid }}"
+                                    <a href="{{ url('student/edit') }}/{{ $item->sid }}"
                                         class="btn btn-outline-warning">Update</a>
-                                    <a href="{{url('student/delete')}}/{{ $item->sid }}"
+                                    <a href="{{ url('student/delete') }}/{{ $item->sid }}"
                                         class="btn btn-outline-danger">Trash</a>
-                                    <a href="{{url('student/view')}}/{{ $item->sid }}" class="btn btn-outline-primary">View</a>
+                                    <a href="{{ url('student/view') }}/{{ $item->sid }}"
+                                        class="btn btn-outline-primary">View</a>
                                 </div>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+        </div>
     </div>
     {{-- <div class="container d-flex mt-5">
         {{$st->links()}}
     </div> --}}
 
     <style>
-        .w-5{
+        .w-5 {
             width: 22px;
         }
-        a{
+
+        a {
             text-decoration: none;
         }
-        .text-sm{
+
+        .text-sm {
             margin: 15px 0;
         }
     </style>

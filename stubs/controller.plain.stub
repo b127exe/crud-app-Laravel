@@ -1,0 +1,30 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ rootNamespace }}Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class {{ class }} extends Controller
+{
+    public function index(){
+
+     echo "This is pre build methods";
+
+     return view();
+
+    }
+
+    public function insert(){
+
+    }
+    public function edit(){
+
+    }
+    public function update(){
+
+    }
+    public function store(){
+
+    }
+}

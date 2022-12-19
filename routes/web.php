@@ -20,24 +20,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/student',[StudentController::class , 'index']);
-Route::get('/student/insert',[StudentController::class , 'insert']);
-Route::post('/student/store',[StudentController::class , 'store']);
-Route::get('/student/delete/{id}',[StudentController::class , 'delete']);
-Route::get('/student/edit/{id}',[StudentController::class , 'edit']);
-Route::post('/student/update/{id}',[StudentController::class , 'update']);
-Route::get('/student/view/{id}',[StudentController::class , 'view']);
-Route::get('/student/trash',[StudentController::class , 'trash']);
-Route::get('/student/deleteper/{id}',[StudentController::class , 'deleteper']);
-Route::get('/student/restore/{id}',[StudentController::class , 'restore']);
+Route::group(['prefix' => 'student'],function(){    
+    Route::get('/',[StudentController::class , 'index']);
+    Route::get('/insert',[StudentController::class , 'insert']);
+    Route::post('/store',[StudentController::class , 'store']);
+    Route::get('/delete/{id}',[StudentController::class , 'delete']);
+    Route::get('/edit/{id}',[StudentController::class , 'edit']);
+    Route::post('/update/{id}',[StudentController::class , 'update']);
+    Route::get('/view/{id}',[StudentController::class , 'view']);
+    Route::get('/trash',[StudentController::class , 'trash']);
+    Route::get('/deleteper/{id}',[StudentController::class , 'deleteper']);
+    Route::get('/restore/{id}',[StudentController::class , 'restore']);
+});
 
-
-Route::get('/department',[DepartmentController::class , 'index']);
-Route::get('/department/insert',[DepartmentController::class , 'insert']);
-Route::post('/department/store',[DepartmentController::class , 'store']);
-Route::get('/department/edit/{id}',[DepartmentController::class , 'edit']);
-Route::post('/department/update/{id}',[DepartmentController::class , 'update']);
-Route::get('/department/delete/{id}',[DepartmentController::class , 'delete']);
+Route::group(['prefix' => 'department'],function(){
+    Route::get('/',[DepartmentController::class , 'index']);
+    Route::get('/insert',[DepartmentController::class , 'insert']);
+    Route::post('/store',[DepartmentController::class , 'store']);
+    Route::get('/edit/{id}',[DepartmentController::class , 'edit']);
+    Route::post('/update/{id}',[DepartmentController::class , 'update']);
+    Route::get('/delete/{id}',[DepartmentController::class , 'delete']);
+});
 
 Route::get('/employee',[EmployeeController::class , 'index']);
 Route::get('/employee/insert',[EmployeeController::class , 'insert']);

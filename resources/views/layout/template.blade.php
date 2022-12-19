@@ -43,11 +43,14 @@
 
       @yield('content')
 
-      <footer class="bg-dark fixed-bottom">
-         <div class="container-fluid">
-             <p class="text-center text-white">Copyright &copy; all right reserved 2022 | Crud App</p>
-             <hr class="text-white">
-         </div>
+      <footer class="bd-footer py-1 py-md-1 mt-3 bg-dark">
+        <div class="container py-2 py-md-2 px-4 px-md-3">
+          <div class="row">
+             <div class="offset-md-3 col-md-6">
+               <p class="text-white text-center">Copyright&copy; all right reserved 2022 | Crud App</p><hr class="text-white">
+             </div>
+          </div>
+        </div>
       </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
